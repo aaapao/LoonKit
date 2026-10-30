@@ -61,7 +61,6 @@ GitHub = select, PROXY, HK, SG, US, JP, TW, img-url = https://gh-proxy.com/https
 TikTok = select, PROXY, HK, SG, US, JP, TW, img-url = https://gh-proxy.com/https://raw.githubusercontent.com/aaapao/LoonKit/main/Icon/Qure/TikTok.png
 Netflix = select, PROXY, HK, SG, US, JP, TW, img-url = https://gh-proxy.com/https://raw.githubusercontent.com/aaapao/LoonKit/main/Icon/Qure/Netflix.png
 YouTube = select, PROXY, HK, SG, US, JP, TW, img-url = https://gh-proxy.com/https://raw.githubusercontent.com/aaapao/LoonKit/main/Icon/Qure/YouTube.png
-Bahamut = select, PROXY, HK, SG, US, JP, TW, img-url = https://gh-proxy.com/https://raw.githubusercontent.com/aaapao/LoonKit/main/Icon/Qure/Bahamut.png
 HK = url-test, 香港, url = http://www.qualcomm.cn/generate_204, interval = 300, tolerance = 50, img-url = https://gh-proxy.com/https://raw.githubusercontent.com/aaapao/LoonKit/main/Icon/Qure/Hong_Kong.png
 TW = url-test, 台湾, url = http://www.qualcomm.cn/generate_204, interval = 300, tolerance = 50, img-url = https://gh-proxy.com/https://raw.githubusercontent.com/aaapao/LoonKit/main/Icon/Qure/China.png
 SG = url-test, 新加坡, url = http://www.qualcomm.cn/generate_204, interval = 300, tolerance = 50, img-url = https://gh-proxy.com/https://raw.githubusercontent.com/aaapao/LoonKit/main/Icon/Qure/Singapore.png
@@ -83,22 +82,17 @@ KR = url-test, 韩国, url = http://www.qualcomm.cn/generate_204, interval = 300
 FINAL,FINAL
 
 [Remote Rule]
-https://gh-proxy.com/https://raw.githubusercontent.com/aaapao/LoonKit/main/Rule/vendor/ACL4SSR/LocalAreaNetwork.list, policy = DIRECT, tag = 局域网, enabled = true
-https://gh-proxy.com/https://raw.githubusercontent.com/aaapao/LoonKit/main/Rule/vendor/Tartarus2014/TestFlight.lsr, policy = PROXY, tag = TestFlight, enabled = true
-https://kelee.one/Tool/Loon/Lsr/AI.lsr, policy = AI, tag = AI, enabled = true
-https://rule.kelee.one/Loon/Apple.lsr, policy = Apple, tag = Apple, enabled = true
-https://rule.kelee.one/Loon/GitHub.lsr, policy = GitHub, tag = Github, enabled = true
-https://rule.kelee.one/Loon/DouYin.lsr, policy = DIRECT, tag = DouYin, enabled = true
-https://kelee.one/Tool/Loon/Lsr/TikTok.lsr, policy = TikTok, tag = TikTok, enabled = true
-https://rule.kelee.one/Loon/YouTube.lsr, policy = YouTube, tag = YouTube, enabled = true
-https://rule.kelee.one/Loon/Netflix.lsr, policy = Netflix, tag = Netflix, enabled = true
-https://rule.kelee.one/Loon/Bahamut.lsr, policy = Bahamut, tag = Bahamut, enabled = true
-https://rule.kelee.one/Loon/Telegram.lsr, policy = Telegram, tag = Telegram, enabled = true
-https://gh-proxy.com/https://raw.githubusercontent.com/aaapao/LoonKit/main/Rule/vendor/Tartarus2014/Direct.lsr, policy = DIRECT, tag = DIRECT, enabled = true
-https://rule.kelee.one/Loon/Proxy.lsr, policy = PROXY, tag = PROXY, enabled = true
-https://rule.kelee.one/Loon/ProxyLite.lsr, policy = PROXY, tag = PROXY, enabled = true
-https://rule.kelee.one/Loon/ChinaMax.lsr, policy = DIRECT, tag = DIRECT, enabled = true
-https://gh-proxy.com/https://raw.githubusercontent.com/aaapao/LoonKit/main/Rule/vendor/Tartarus2014/GEOIP.lsr, policy = DIRECT, tag = GEOIP_CN, enabled = true
+https://gh-proxy.com/https://raw.githubusercontent.com/aaapao/LoonKit/main/Rule/AI.lsr, policy = AI, tag = AI, enabled = true
+https://gh-proxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Loon/Apple/Apple.list, policy = Apple, tag = Apple, enabled = true
+https://gh-proxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Loon/GitHub/GitHub.list, policy = GitHub, tag = GitHub, enabled = true
+https://gh-proxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Loon/Netflix/Netflix.list, policy = Netflix, tag = Netflix, enabled = true
+https://gh-proxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Loon/Telegram/Telegram.list, policy = Telegram, tag = Telegram, enabled = true
+https://gh-proxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Loon/TikTok/TikTok.list, policy = TikTok, tag = TikTok, enabled = true
+https://gh-proxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Loon/YouTube/YouTube.list, policy = YouTube, tag = YouTube, enabled = true
+https://gh-proxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Loon/WeChat/WeChat.list, policy = DIRECT, tag = WeChat, enabled = true
+https://gh-proxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Loon/Direct/Direct.list, policy = DIRECT, tag = DIRECT, enabled = true
+https://gh-proxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Loon/Proxy/Proxy.list, policy = PROXY, tag = Proxy, enabled = true
+https://gh-proxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Loon/Proxy/Proxy_Domain.list, policy = PROXY, tag = Proxy_Domain, enabled = true
 
 [Host]
 
@@ -107,17 +101,6 @@ https://gh-proxy.com/https://raw.githubusercontent.com/aaapao/LoonKit/main/Rule/
 [Script]
 
 [Plugin]
-https://kelee.one/Tool/Loon/Lpx/Block_HTTPDNS.lpx, pin = true, enabled = false
-https://kelee.one/Tool/Loon/Lpx/BlockAdvertisers.lpx, pin = true, enabled = false
-https://kelee.one/Tool/Loon/Lpx/Node_detection_tool.lpx, enabled = false
-https://gh-proxy.com/https://raw.githubusercontent.com/aaapao/LoonKit/main/Plugin/vendor/MaYIHEI/ipquality-web-test.lpx, enabled = false
-https://gh-proxy.com/https://raw.githubusercontent.com/aaapao/LoonKit/main/Plugin/vendor/Tartarus2014/LoonGallery.lpx, enabled = false
-https://gh-proxy.com/https://raw.githubusercontent.com/aaapao/LoonKit/main/Plugin/vendor/Sub-Store/Loon-parser.plugin, enabled = false
-https://gh-proxy.com/https://raw.githubusercontent.com/aaapao/LoonKit/main/Plugin/vendor/mc2u/loon_resource_parser.lpx, enabled = false
-https://gh-proxy.com/https://raw.githubusercontent.com/aaapao/LoonKit/main/Plugin/vendor/Script-Hub/script-hub.loon.plugin, enabled = false
-https://gh-proxy.com/https://raw.githubusercontent.com/aaapao/LoonKit/main/Plugin/vendor/chavyleung/boxjs.rewrite.loon.plugin, enabled = false
-https://gh-proxy.com/https://raw.githubusercontent.com/aaapao/LoonKit/main/Plugin/vendor/devchristian1337/Spotify.lpx, enabled = false
-https://gh-proxy.com/https://raw.githubusercontent.com/aaapao/LoonKit/main/Plugin/vendor/devchristian1337/YouTube.lpx, enabled = false
 
 [Mitm]
 # 提醒passphrase和p12代为证书&主机名部分, 更新配置前可把旧的配置中passphrase和p12代码拷贝下来, 导入新的配置文件把内容粘贴在对应位置就不用重装证书
