@@ -1,0 +1,133 @@
+#!name = AI 服务分流
+#!desc = Apple Intelligence / Anthropic / OpenAI / Gemini / Cursor / Grok 等 AI 服务域名，统一走 PROXY 策略组
+#!author = aaapao
+#!system = iOS, iPadOS, macOS
+#!loon_version = 3.5.1(983)
+#!date = 2026-10-30
+#!homepage = https://github.com/aaapao/LoonKit
+#!tag = 规则
+#!icon = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/AI.png
+
+# 规则来源：ConnersHua/RuleGo · Surge/Ruleset/Extra/AI.list
+# 原始地址：https://github.com/ConnersHua/RuleGo/blob/master/Surge/Ruleset/Extra/AI.list
+# 共 74 条，已去除 Surge 专有的 extended-matching 参数。
+#
+# 注意：插件规则只能用 DIRECT / REJECT / PROXY，无法指定自定义策略组。
+# 若想让这些域名走自己的 AI 策略组，改用 Rule/AI.lsr，在 [Remote Rule] 里配 policy = AI。
+
+[Rule]
+# Apple Intelligence
+DOMAIN-SUFFIX,smoot.apple.com,PROXY
+DOMAIN,apple-relay.apple.com,PROXY
+DOMAIN,apple-relay.cloudflare.com,PROXY
+DOMAIN,apple-relay.fastly-edge.com,PROXY
+DOMAIN-SUFFIX,gateway.icloud.com,PROXY
+DOMAIN,cp4.cloudflare.com,PROXY
+DOMAIN,guzzoni.apple.com,PROXY
+DOMAIN,gspe1-ssl.ls.apple.com,PROXY
+DOMAIN-SUFFIX,apps.mzstatic.com,PROXY
+
+# Anthropic
+# > Claude
+DOMAIN-SUFFIX,anthropic.com,PROXY
+DOMAIN-SUFFIX,claude.ai,PROXY
+DOMAIN-SUFFIX,claude.com,PROXY
+DOMAIN-SUFFIX,clau.de,PROXY
+DOMAIN-SUFFIX,claudemcpclient.com,PROXY
+DOMAIN-SUFFIX,claudemcpcontent.com,PROXY
+DOMAIN-SUFFIX,claudeusercontent.com,PROXY
+DOMAIN,anthropic.auth0.com,PROXY
+DOMAIN,anthropic.com.cdn.cloudflare.net,PROXY
+DOMAIN,anthropic-com.ghost.io,PROXY
+DOMAIN,servd-anthropic-website.b-cdn.net,PROXY
+
+# OpenAI
+# > ChatGPT
+DOMAIN-SUFFIX,chat.com,PROXY
+DOMAIN-SUFFIX,chatgpt.com,PROXY
+DOMAIN-SUFFIX,livekit.cloud,PROXY
+DOMAIN-SUFFIX,oaistatic.com,PROXY
+DOMAIN-SUFFIX,oaiusercontent.com,PROXY
+DOMAIN-SUFFIX,openai.com,PROXY
+DOMAIN-SUFFIX,sora.com,PROXY
+DOMAIN,api.statsig.com,PROXY
+DOMAIN,api-iam.intercom.io,PROXY
+DOMAIN,o33249.ingest.sentry.io,PROXY
+DOMAIN,openaiapi-site.azureedge.net,PROXY
+DOMAIN-KEYWORD,openaiapi,PROXY
+DOMAIN-KEYWORD,openaicom,PROXY
+# OpenRouter
+DOMAIN-SUFFIX,openrouter.ai,PROXY
+
+# Cloudflare
+# > AI Gateway
+DOMAIN,gateway.ai.cloudflare.com,PROXY
+
+# Cursor
+DOMAIN-SUFFIX,cursor-cdn.com,PROXY
+DOMAIN-SUFFIX,cursor.com,PROXY
+DOMAIN-SUFFIX,cursor.sh,PROXY
+DOMAIN-SUFFIX,cursorapi.com,PROXY
+
+# Zed
+DOMAIN-SUFFIX,zed.dev,PROXY
+
+# Google
+# > AI Studio
+DOMAIN-SUFFIX,generativeai.google,PROXY
+DOMAIN-SUFFIX,makersuite.google.com,PROXY
+DOMAIN,aistudio.google.com,PROXY
+DOMAIN,alkalicore-pa.clients6.google.com,PROXY
+DOMAIN,alkalimakersuite-pa.clients6.google.com,PROXY
+# > Antigravity
+DOMAIN,antigravity.google,PROXY
+DOMAIN,antigravity-unleash.goog,PROXY
+# > DeepMind
+DOMAIN-SUFFIX,deepmind.com,PROXY
+DOMAIN-SUFFIX,deepmind.google,PROXY
+# > Gemini
+DOMAIN-SUFFIX,proactivebackend-pa.googleapis.com,PROXY
+DOMAIN-SUFFIX,geller-pa.googleapis.com,PROXY
+DOMAIN-SUFFIX,generativelanguage.googleapis.com,PROXY
+DOMAIN,ai.google.dev,PROXY
+DOMAIN,bard.google.com,PROXY
+DOMAIN,gemini.google.com,PROXY
+# > NotebookLM
+DOMAIN-KEYWORD,notebooklm.google,PROXY
+# > Search Labs
+DOMAIN-KEYWORD,labs.google,PROXY
+
+# Groq
+DOMAIN-SUFFIX,groq.com,PROXY
+
+# JetBrains AI
+DOMAIN-SUFFIX,grazie.ai,PROXY
+
+# Meta
+DOMAIN-SUFFIX,meta.ai,PROXY
+DOMAIN,imagine.meta.com,PROXY
+
+# Microsoft
+# > Copilot
+DOMAIN,copilot.microsoft.com,PROXY
+DOMAIN,sydney.bing.com,PROXY
+DOMAIN,www.bing.com,PROXY
+# > GitHub Copilot
+DOMAIN-SUFFIX,githubcopilot.com,PROXY
+
+# Perplexity
+DOMAIN-SUFFIX,perplexity.ai,PROXY
+DOMAIN-SUFFIX,pplx.ai,PROXY
+DOMAIN,pplx-res.cloudinary.com,PROXY
+
+# xAI
+DOMAIN-SUFFIX,grok.com,PROXY
+DOMAIN-SUFFIX,x.ai,PROXY
+
+# Doubao
+# > Doubao Dola
+DOMAIN-SUFFIX,cici.com,PROXY
+DOMAIN-SUFFIX,ciciai.com,PROXY
+DOMAIN-SUFFIX,dola.com,PROXY
+DOMAIN-SUFFIX,byteoversea.com,PROXY
+

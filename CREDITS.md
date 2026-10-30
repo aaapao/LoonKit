@@ -38,6 +38,14 @@
 | --- | --- |
 | `Script/vendor/Sub-Store/sub-store-parser.loon.min.js` | [sub-store-org/Sub-Store](https://github.com/sub-store-org/Sub-Store) · release 分支 |
 
+## 衍生规则
+
+以下文件由上游规则集转换而来，非逐字镜像。
+
+| 本地路径 | 上游 | 改动 |
+| --- | --- | --- |
+| `Rule/AI.lsr`、`Plugin/rules/ai-services.lpx` | [ConnersHua/RuleGo](https://github.com/ConnersHua/RuleGo) · `Surge/Ruleset/Extra/AI.list` | 转为 Loon 语法，去除 Surge 专有的 `extended-matching` 参数 |
+
 ## 未镜像的资源
 
 以下资源来自 `kelee.one` / `rule.kelee.one`，抓取时被拦截（403 / DNS 无解析），因此保留原链接，未做本地化：
