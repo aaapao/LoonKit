@@ -13,14 +13,24 @@ Loon 配置模板、插件、脚本、分流规则、定时任务的整理仓库
 LoonKit/
 ├── Config/      # .lcf  完整配置模板
 ├── Plugin/      # .lpx  插件（可一键导入）
+│   └── vendor/  # 第三方插件镜像，来源见 CREDITS.md
 ├── Script/      # .js   脚本（被插件/配置引用）
+│   └── vendor/  # 第三方脚本镜像
 ├── Rule/        # .lsr  分流规则
+│   └── vendor/  # 第三方规则镜像
 ├── Task/        # .ltx  定时任务
 ├── Rewrite/     # .jq   复写表达式
-├── Icon/        # 图标资源说明与索引
+├── Icon/        # 图标，按上游分目录
 ├── Docs/        # 格式速查、编写指南
 └── Tools/       # 本地校验脚本
 ```
+
+## 加速与镜像
+
+仓库内的资源链接统一走 [gh-proxy](https://gh-proxy.com/) 加速，格式是 `https://gh-proxy.com/<原始 GitHub 链接>`。国内直连 `raw.githubusercontent.com` 经常超时，套一层代理能稳定拉取。
+
+被引用的第三方资源已镜像到本仓库的 `vendor/` 目录，来源和许可记录在 [CREDITS.md](CREDITS.md)。注意：镜像只覆盖插件/规则文件本身，插件内部再引用原作者脚本的部分没有改写，仍然指向上游。
+
 
 ## 文件类型
 
@@ -51,6 +61,7 @@ LoonKit/
 
 | 文件 | 说明 |
 | --- | --- |
+| `Config/Loon.lcf` | 自托管版完整配置，第三方资源已镜像并走 gh-proxy |
 | `Config/Loon-Lite.lcf` | 精简配置骨架，含 General / 策略组 / 规则 / 插件 / Mitm 段位说明 |
 | `Plugin/tools/google-redirect.lpx` | Google 搜索重定向（可用示例） |
 | `Plugin/_template.lpx` | 插件编写模板，含参数类型与常用段 |

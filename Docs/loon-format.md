@@ -91,6 +91,16 @@ input  输入   interval = input,"300",type=number,tag=间隔
 
 `no-resolve` 表示不做 DNS 解析，纯 IP 规则建议都加。
 
+`.lsr` 作为远程规则订阅时，策略可以省略，由 `[Remote Rule]` 里的 `policy =` 统一指定。两种写法都合法：
+
+```
+# 自带策略
+DOMAIN-SUFFIX,example.com,PROXY
+
+# 省略策略，用订阅的 policy
+DOMAIN-SUFFIX,example.com
+```
+
 ## Script v2 语法
 
 ```

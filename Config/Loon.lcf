@@ -1,0 +1,127 @@
+# Loon 全局配置（自托管版）
+# 生成时间：2026-10-30
+# 镜像仓库：https://github.com/aaapao/LoonKit
+# 说明：原配置中来自 GitHub 的图标、规则、插件、解析器已镜像到本仓库，
+#       所有本仓库链接统一走 gh-proxy 加速（https://gh-proxy.com/）。
+#       来自 kelee.one 的资源无法抓取，保留原始链接。
+#
+# 原始说明保留如下：
+# Loon全局配置
+# Loon官方文档：https://nsloon.app/docs/intro
+# Loon第三方插件中心：https://hub.kelee.one
+# Loon第三方知识库：https://t.me/ibilibili/581
+
+# 导入配置。
+# 导入完成后点 https://www.nsloon.com/openloon/flowmodel=filter 切换至自动分流模式。
+# 再点 https://www.nsloon.com/openloon/proxymode=tun 切换代理模式至 TUN Only 模式 [此操作点击跳转至Loon后即为切换成功]。
+# 打开［MitM］［脚本］［复写］三个功能的开关。
+# 打开［MitM］里的［MitM over HTTP/2］和［QUIC回退保护］开关。
+# 保证Safari是默认浏览器的情况下，安装并信任证书。
+# 点击Loon底部导航栏的［配置］→ 右上角的［⋯］，打开［始终开启］的开关。
+# 添加你的机场订阅。
+# 打开Loon的开关后并点击 https://www.nsloon.com/openloon/update?sub=all 一键更新所有外部资源。
+
+
+[General]
+ip-mode = dual
+ipv6-vif = auto
+disable-stun = true
+udp-fallback-mode = REJECT
+sni-sniffing = true
+disconnect-on-policy-change = true
+domain-reject-mode = DNS
+dns-reject-mode = LoopbackIP
+skip-proxy = 192.168.0.0/16, 10.0.0.0/8, 172.16.0.0/12, localhost, *.local, e.crashlynatics.com
+real-ip = *.apple.com, *apple.com
+bypass-tun = 10.0.0.0/8, 100.64.0.0/10, 127.0.0.0/8, 169.254.0.0/16, 172.16.0.0/12, 192.0.0.0/24, 192.0.2.0/24, 192.88.99.0/24, 192.168.0.0/16, 198.51.100.0/24, 203.0.113.0/24, 224.0.0.0/4, 255.255.255.255/32
+dns-server = 223.5.5.5, 119.29.29.29
+doh-server = https://dns.alidns.com/dns-query, https://doh.pub/dns-query
+hijack-dns = 8.8.8.8:53, 8.8.4.4:53
+allow-wifi-access = false
+wifi-access-http-port = 7222
+wifi-access-socks5-port = 7221
+mitm-on-wifi-access = false
+internet-test-url = http://connectivitycheck.platform.hicloud.com/generate_204
+proxy-test-url = http://www.gstatic.com/generate_204
+test-timeout = 5
+interface-mode = auto
+resource-parser = https://gh-proxy.com/https://raw.githubusercontent.com/aaapao/LoonKit/main/Script/vendor/Sub-Store/sub-store-parser.loon.min.js
+
+[Proxy]
+
+[Remote Proxy]
+
+[Proxy Group]
+FINAL = select, DIRECT, PROXY, HK, SG, US, JP, TW, img-url = https://gh-proxy.com/https://raw.githubusercontent.com/aaapao/LoonKit/main/Icon/Qure/Final.png
+PROXY = select, HK, SG, US, JP, TW, img-url = https://gh-proxy.com/https://raw.githubusercontent.com/aaapao/LoonKit/main/Icon/Qure/Proxy.png
+AI = select, PROXY, HK, SG, US, JP, TW, img-url = https://gh-proxy.com/https://raw.githubusercontent.com/aaapao/LoonKit/main/Icon/For-own-use/AI.png
+Apple = select, DIRECT, PROXY, HK, SG, US, JP, TW, img-url = https://gh-proxy.com/https://raw.githubusercontent.com/aaapao/LoonKit/main/Icon/Qure/Apple.png
+Telegram = select, PROXY, HK, SG, US, JP, TW, img-url = https://gh-proxy.com/https://raw.githubusercontent.com/aaapao/LoonKit/main/Icon/Qure/Telegram.png
+GitHub = select, PROXY, HK, SG, US, JP, TW, img-url = https://gh-proxy.com/https://raw.githubusercontent.com/aaapao/LoonKit/main/Icon/IconResource/GitHub.png
+TikTok = select, PROXY, HK, SG, US, JP, TW, img-url = https://gh-proxy.com/https://raw.githubusercontent.com/aaapao/LoonKit/main/Icon/Qure/TikTok.png
+Netflix = select, PROXY, HK, SG, US, JP, TW, img-url = https://gh-proxy.com/https://raw.githubusercontent.com/aaapao/LoonKit/main/Icon/Qure/Netflix.png
+YouTube = select, PROXY, HK, SG, US, JP, TW, img-url = https://gh-proxy.com/https://raw.githubusercontent.com/aaapao/LoonKit/main/Icon/Qure/YouTube.png
+Bahamut = select, PROXY, HK, SG, US, JP, TW, img-url = https://gh-proxy.com/https://raw.githubusercontent.com/aaapao/LoonKit/main/Icon/Qure/Bahamut.png
+HK = url-test, 香港, url = http://www.qualcomm.cn/generate_204, interval = 300, tolerance = 50, img-url = https://gh-proxy.com/https://raw.githubusercontent.com/aaapao/LoonKit/main/Icon/Qure/Hong_Kong.png
+TW = url-test, 台湾, url = http://www.qualcomm.cn/generate_204, interval = 300, tolerance = 50, img-url = https://gh-proxy.com/https://raw.githubusercontent.com/aaapao/LoonKit/main/Icon/Qure/China.png
+SG = url-test, 新加坡, url = http://www.qualcomm.cn/generate_204, interval = 300, tolerance = 50, img-url = https://gh-proxy.com/https://raw.githubusercontent.com/aaapao/LoonKit/main/Icon/Qure/Singapore.png
+US = url-test, 美国, url = http://www.qualcomm.cn/generate_204, interval = 300, tolerance = 50, img-url = https://gh-proxy.com/https://raw.githubusercontent.com/aaapao/LoonKit/main/Icon/Qure/United_States.png
+JP = url-test, 日本, url = http://www.qualcomm.cn/generate_204, interval = 300, tolerance = 50, img-url = https://gh-proxy.com/https://raw.githubusercontent.com/aaapao/LoonKit/main/Icon/Qure/Japan.png
+KR = url-test, 韩国, url = http://www.qualcomm.cn/generate_204, interval = 300, tolerance = 50, img-url = https://gh-proxy.com/https://raw.githubusercontent.com/aaapao/LoonKit/main/Icon/Qure/Korea.png
+
+[Remote Filter]
+香港 = NameRegex, FilterKey = "^(?=.*((?i)🇭🇰|香港|(\b(HK|HKG|Hong)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$"
+台湾 = NameRegex, FilterKey = "^(?=.*((?i)🇹🇼|台湾|(\b(TW|TWN|Tai|Taiwan)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$"
+日本 = NameRegex, FilterKey = "^(?=.*((?i)🇯🇵|日本|川日|东京|大阪|泉日|埼玉|(\b(JP|JPN|Japan)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$"
+韩国 = NameRegex, FilterKey = "^(?=.*((?i)🇰🇷|韩国|韓|首尔|(\b(KR|KOR|Korea)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$"
+新加坡 = NameRegex, FilterKey = "^(?=.*((?i)🇸🇬|新加坡|狮|(\b(SG|SGP|Singapore)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$"
+美国 = NameRegex, FilterKey = "^(?=.*((?i)🇺🇸|美国|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥|(\b(US|USA|United States)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$"
+游戏 = NameRegex, FilterKey = "^(?=.*((?i)游戏|🎮|(\b(GAME)(\d+)?\b)))(?!.*((?i)回国|校园)).*$"
+全球 = NameRegex, FilterKey = "^(?=.*(.))(?!.*((?i)群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|教程|关注|更新|作者|加入|超时|收藏|福利|邀请|好友|失联|(\b(USE|USED|TOTAL|EXPIRE|EMAIL|Panel|Channel|Author|Traffic)(\d+)?\b|(\d{4}-\d{2}-\d{2}|\dG)))).*$"
+
+[Rule]
+FINAL,FINAL
+
+[Remote Rule]
+https://gh-proxy.com/https://raw.githubusercontent.com/aaapao/LoonKit/main/Rule/vendor/ACL4SSR/LocalAreaNetwork.list, policy = DIRECT, tag = 局域网, enabled = true
+https://gh-proxy.com/https://raw.githubusercontent.com/aaapao/LoonKit/main/Rule/vendor/Tartarus2014/TestFlight.lsr, policy = PROXY, tag = TestFlight, enabled = true
+https://kelee.one/Tool/Loon/Lsr/AI.lsr, policy = AI, tag = AI, enabled = true
+https://rule.kelee.one/Loon/Apple.lsr, policy = Apple, tag = Apple, enabled = true
+https://rule.kelee.one/Loon/GitHub.lsr, policy = GitHub, tag = Github, enabled = true
+https://rule.kelee.one/Loon/DouYin.lsr, policy = DIRECT, tag = DouYin, enabled = true
+https://kelee.one/Tool/Loon/Lsr/TikTok.lsr, policy = TikTok, tag = TikTok, enabled = true
+https://rule.kelee.one/Loon/YouTube.lsr, policy = YouTube, tag = YouTube, enabled = true
+https://rule.kelee.one/Loon/Netflix.lsr, policy = Netflix, tag = Netflix, enabled = true
+https://rule.kelee.one/Loon/Bahamut.lsr, policy = Bahamut, tag = Bahamut, enabled = true
+https://rule.kelee.one/Loon/Telegram.lsr, policy = Telegram, tag = Telegram, enabled = true
+https://gh-proxy.com/https://raw.githubusercontent.com/aaapao/LoonKit/main/Rule/vendor/Tartarus2014/Direct.lsr, policy = DIRECT, tag = DIRECT, enabled = true
+https://rule.kelee.one/Loon/Proxy.lsr, policy = PROXY, tag = PROXY, enabled = true
+https://rule.kelee.one/Loon/ProxyLite.lsr, policy = PROXY, tag = PROXY, enabled = true
+https://rule.kelee.one/Loon/ChinaMax.lsr, policy = DIRECT, tag = DIRECT, enabled = true
+https://gh-proxy.com/https://raw.githubusercontent.com/aaapao/LoonKit/main/Rule/vendor/Tartarus2014/GEOIP.lsr, policy = DIRECT, tag = GEOIP_CN, enabled = true
+
+[Host]
+
+[Rewrite]
+
+[Script]
+
+[Plugin]
+https://kelee.one/Tool/Loon/Lpx/Block_HTTPDNS.lpx, pin = true, enabled = false
+https://kelee.one/Tool/Loon/Lpx/BlockAdvertisers.lpx, pin = true, enabled = false
+https://kelee.one/Tool/Loon/Lpx/Node_detection_tool.lpx, enabled = false
+https://gh-proxy.com/https://raw.githubusercontent.com/aaapao/LoonKit/main/Plugin/vendor/MaYIHEI/ipquality-web-test.lpx, enabled = false
+https://gh-proxy.com/https://raw.githubusercontent.com/aaapao/LoonKit/main/Plugin/vendor/Tartarus2014/LoonGallery.lpx, enabled = false
+https://gh-proxy.com/https://raw.githubusercontent.com/aaapao/LoonKit/main/Plugin/vendor/Sub-Store/Loon-parser.plugin, enabled = false
+https://gh-proxy.com/https://raw.githubusercontent.com/aaapao/LoonKit/main/Plugin/vendor/mc2u/loon_resource_parser.lpx, enabled = false
+https://gh-proxy.com/https://raw.githubusercontent.com/aaapao/LoonKit/main/Plugin/vendor/Script-Hub/script-hub.loon.plugin, enabled = false
+https://gh-proxy.com/https://raw.githubusercontent.com/aaapao/LoonKit/main/Plugin/vendor/chavyleung/boxjs.rewrite.loon.plugin, enabled = false
+https://gh-proxy.com/https://raw.githubusercontent.com/aaapao/LoonKit/main/Plugin/vendor/devchristian1337/Spotify.lpx, enabled = false
+https://gh-proxy.com/https://raw.githubusercontent.com/aaapao/LoonKit/main/Plugin/vendor/devchristian1337/YouTube.lpx, enabled = false
+
+[Mitm]
+# 提醒passphrase和p12代为证书&主机名部分, 更新配置前可把旧的配置中passphrase和p12代码拷贝下来, 导入新的配置文件把内容粘贴在对应位置就不用重装证书
+ca-p12 = 
+ca-passphrase = 
+skip-server-cert-verify = false
+hostname = 

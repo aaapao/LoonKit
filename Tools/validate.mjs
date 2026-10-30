@@ -47,7 +47,9 @@ function check(file) {
     stats[ext.slice(1)] += 1;
 
     for (const key of ['#!name', '#!desc']) {
-      if (!lines.slice(0, 20).some((l) => l.startsWith(`${key} =`))) {
+      // 社区里 `#!name = x` 和 `#!name=x` 两种写法都常见，都认
+      const re = new RegExp(`^${key}\\s*=`);
+      if (!lines.slice(0, 20).some((l) => re.test(l))) {
         fail(file, `缺少 ${key} 头`);
       }
     }
@@ -88,10 +90,9 @@ function check(file) {
       const l = line.trim();
       if (!l || l.startsWith('#')) return;
       const parts = l.split(',').map((p) => p.trim()).filter(Boolean);
-      // FINAL 只有 类型,策略 两段，其余规则都是 类型,值,策略
-      const min = parts[0].toUpperCase() === 'FINAL' ? 2 : 3;
-      if (parts.length < min) {
-        fail(file, `第 ${i + 1} 行字段不足（需要 ${min} 段）：${l}`);
+      // 远程规则订阅可以省略策略（由 [Remote Rule] 的 policy = 决定），所以最少 2 段
+      if (parts.length < 2) {
+        fail(file, `第 ${i + 1} 行字段不足（至少 类型,值）：${l}`);
       }
     });
   }
