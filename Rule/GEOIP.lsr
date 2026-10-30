@@ -1,0 +1,5 @@
+# LoonKit · GeoIP 兜底
+# 放在规则链最后、FINAL 之前。国内 IP 直连，剩下的交给 FINAL 决定。
+# 引用方式：https://raw.githubusercontent.com/aaapao/LoonKit/main/Rule/GEOIP.lsr, policy = DIRECT, tag = GEOIP_CN, enabled = true
+
+GEOIP,CN,DIRECT

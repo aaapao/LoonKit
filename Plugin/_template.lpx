@@ -1,0 +1,48 @@
+#!name = 插件名称
+#!desc = 一句话说明插件做什么，导入时用户只能看到这一行
+#!author = 你的名字
+#!system = iOS, iPadOS, macOS
+#!loon_version = 3.5.1(983)
+#!date = 2026-10-30
+#!homepage = https://github.com/aaapao/LoonKit
+#!tag = 工具
+#!icon = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Example.png
+
+# ---------------------------------------------------------------------------
+# 参数段：导入后在 Loon「插件」页面展示成可配置项，脚本里通过 $argument 读取
+#   switch  开关，值为 true/false
+#   select  下拉，逗号分隔候选值；type=number 时按数字解析
+#   input   文本输入，默认值用双引号包住
+#   tag     显示名，建议中文
+# ---------------------------------------------------------------------------
+[Argument]
+enabled = switch,true,tag=启用
+mode = select,"auto","manual",tag=模式
+interval = input,"300",type=number,tag=间隔（秒）
+keyword = input,"",tag=关键词
+
+# ---------------------------------------------------------------------------
+# 规则段：插件启用后自动注入到配置的规则链
+# ---------------------------------------------------------------------------
+[Rule]
+# DOMAIN-SUFFIX, example.com, PROXY
+
+# ---------------------------------------------------------------------------
+# 复写段：v2 语法，request / response / cron / network-changed / generic
+# ---------------------------------------------------------------------------
+[Rewrite]
+# request if ${url} ~= /\/api\// && ${request.method} == "POST" then reject
+
+# ---------------------------------------------------------------------------
+# 脚本段：路径可以是相对插件的文件名，也可以是绝对 https 地址
+# 参数写法：字符串 "k=v" 或对象 {${a}, ${b}}
+# ---------------------------------------------------------------------------
+[Script]
+# request if ${url} ~= /\/api\// then script("https://raw.githubusercontent.com/aaapao/LoonKit/main/Script/tools/example.js", "mode=${mode}") with enable=${enabled}, tag="示例", timeout=20, requires_body=true
+# cron "0 8 * * *" then script("example-cron.js") with enable=${enabled}, tag="示例任务", timeout=300
+
+# ---------------------------------------------------------------------------
+# Mitm 段：只要涉及复写、脚本改包，hostname 必须覆盖目标域名，否则不生效
+# ---------------------------------------------------------------------------
+[MITM]
+hostname = example.com, *.example.com

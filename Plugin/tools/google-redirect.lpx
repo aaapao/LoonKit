@@ -1,0 +1,15 @@
+#!name = Google 搜索重定向
+#!desc = 把 google.cn / google.com.hk / google.co.jp 的搜索请求 302 重定向到 google.com
+#!author = aaapao
+#!system = iOS, iPadOS, macOS
+#!loon_version = 3.5.1(983)
+#!date = 2026-10-30
+#!homepage = https://github.com/aaapao/LoonKit
+#!tag = 工具
+#!icon = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Google.png
+
+[Rewrite]
+request if ${url} ~= /^https?:\/\/www\.google\.(?:cn|co\.jp|com\.hk)(?:\/(.*))?$/i as urlMatch then redirect(302, "https://www.google.com/${urlMatch.1}")
+
+[MITM]
+hostname = *.google.cn, *.google.com.hk, *.google.co.jp

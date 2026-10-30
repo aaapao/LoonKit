@@ -1,0 +1,21 @@
+# LoonKit · 规则写法模板
+# 一行一条规则，逗号分隔，策略写 DIRECT / REJECT / PROXY 或你自己的策略组名。
+# 匹配顺序从上到下，命中即停。
+
+# 域名
+DOMAIN,api.example.com,PROXY
+DOMAIN-SUFFIX,example.com,PROXY
+DOMAIN-KEYWORD,example,PROXY
+
+# IP 段
+IP-CIDR,1.2.3.0/24,PROXY,no-resolve
+IP-CIDR6,2400:3200::/32,DIRECT,no-resolve
+
+# 地理位置
+GEOIP,CN,DIRECT
+
+# URL 正则，开销大，尽量少用
+URL-REGEX,^https?:\/\/api\.example\.com\/v1\/,PROXY
+
+# 兜底
+FINAL,PROXY

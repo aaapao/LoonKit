@@ -1,0 +1,20 @@
+#!name = 每日签到（模板）
+#!desc = 每天定时执行签到脚本，支持开关、自定义时间和 Token
+#!author = aaapao
+#!system = iOS, iPadOS, macOS
+#!loon_version = 3.5.1(983)
+#!date = 2026-10-30
+#!homepage = https://github.com/aaapao/LoonKit
+#!tag = 任务
+#!icon = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Clock.png
+
+# .ltx 是只有定时任务的插件：结构同 .lpx，去掉请求拦截部分，只留 cron。
+# 老版本 Loon 不认 .ltx 时，把下面 [Script] 的 cron 行直接粘到配置的 [Script] 段即可。
+
+[Argument]
+enabled = switch,true,tag=启用签到
+cron = input,"0 8 * * *",tag=执行时间
+token = input,"",tag=Token
+
+[Script]
+cron ${cron} then script("https://raw.githubusercontent.com/aaapao/LoonKit/main/Script/tasks/checkin-template.js", "token=${token}") with enable=${enabled}, tag="每日签到", timeout=300

@@ -1,0 +1,71 @@
+# LoonKit · 精简配置模板
+# 官方文档：https://nsloon.app/docs/intro
+# 用法：把本文件导入 Loon 后，按注释补上自己的订阅、策略组和规则。
+# 导入：loon://import?sub=<URL 编码后的本文件地址>
+# 导入后需在「配置」中打开 MitM、脚本、复写开关，并安装证书。
+
+[General]
+ip-mode = dual
+ipv6-vif = auto
+sni-sniffing = true
+udp-fallback-mode = REJECT
+disable-stun = true
+disconnect-on-policy-change = true
+skip-proxy = 192.168.0.0/16, 10.0.0.0/8, 172.16.0.0/12, localhost, *.local
+bypass-tun = 10.0.0.0/8, 100.64.0.0/10, 127.0.0.0/8, 169.254.0.0/16, 172.16.0.0/12, 192.0.0.0/24, 192.168.0.0/16, 224.0.0.0/4, 255.255.255.255/32
+dns-server = 223.5.5.5, 119.29.29.29
+doh-server = https://dns.alidns.com/dns-query, https://doh.pub/dns-query
+hijack-dns = 8.8.8.8:53, 8.8.4.4:53
+internet-test-url = http://connectivitycheck.platform.hicloud.com/generate_204
+proxy-test-url = http://www.gstatic.com/generate_204
+test-timeout = 5
+allow-wifi-access = false
+wifi-access-http-port = 7222
+wifi-access-socks5-port = 7221
+mitm-on-wifi-access = false
+
+[Proxy]
+# 手动节点写这里，一行一个，例如：
+# HK-01 = shadowsocks, 1.2.3.4, 443, encrypt-method=aes-128-gcm, password=xxx, udp=true
+
+[Remote Proxy]
+# 机场订阅写这里，一行一个，例如：
+# 我的订阅 = https://example.com/sub?token=xxx, enabled = true
+
+[Proxy Group]
+# 策略组引用的节点名必须真实存在，否则整组失效。
+# 订阅节点用 filter 从「Remote Proxy」里筛，见下方注释。
+PROXY = select, DIRECT
+FINAL = select, PROXY, DIRECT
+# 地区组示例（配合 [Remote Filter] 使用）：
+# HK = url-test, include-all-proxies = true, filter = 香港, url = http://www.gstatic.com/generate_204, interval = 300, tolerance = 50
+
+[Remote Filter]
+# 从所有订阅节点里按名字正则筛选，供策略组 include-all-proxies 使用。
+# 香港 = NameRegex, FilterKey = "(?i)香港|HK|Hong"
+
+[Rule]
+# 自定义规则写在 FINAL 之前，最后一行必须是 FINAL。
+# DOMAIN-SUFFIX, example.com, PROXY
+FINAL, FINAL
+
+[Remote Rule]
+# 远程规则订阅，一行一个：
+# https://example.com/Direct.lsr, policy = DIRECT, tag = 直连, enabled = true
+
+[Host]
+
+[Rewrite]
+
+[Script]
+
+[Plugin]
+# 插件订阅，一行一个：
+# https://raw.githubusercontent.com/aaapao/LoonKit/main/Plugin/tools/google-redirect.lpx, enabled = true
+
+[Mitm]
+# 换配置时把旧的 ca-p12 和 ca-passphrase 复制过来，就不用重装证书。
+ca-p12 =
+ca-passphrase =
+skip-server-cert-verify = false
+hostname =

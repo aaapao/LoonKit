@@ -1,0 +1,29 @@
+# LoonKit · 直连规则
+# 常用国内域名，最后用 GEOIP 兜底。
+# 引用方式（配置的 [Remote Rule]）：
+# https://raw.githubusercontent.com/aaapao/LoonKit/main/Rule/Direct.lsr, policy = DIRECT, tag = 直连, enabled = true
+
+# 国内域名
+DOMAIN-SUFFIX,cn,DIRECT
+DOMAIN-SUFFIX,baidu.com,DIRECT
+DOMAIN-SUFFIX,qq.com,DIRECT
+DOMAIN-SUFFIX,tencent.com,DIRECT
+DOMAIN-SUFFIX,wechat.com,DIRECT
+DOMAIN-SUFFIX,taobao.com,DIRECT
+DOMAIN-SUFFIX,tmall.com,DIRECT
+DOMAIN-SUFFIX,alicdn.com,DIRECT
+DOMAIN-SUFFIX,aliyun.com,DIRECT
+DOMAIN-SUFFIX,jd.com,DIRECT
+DOMAIN-SUFFIX,163.com,DIRECT
+DOMAIN-SUFFIX,bilibili.com,DIRECT
+DOMAIN-SUFFIX,zhihu.com,DIRECT
+DOMAIN-SUFFIX,weibo.com,DIRECT
+
+# 内网
+IP-CIDR,10.0.0.0/8,DIRECT,no-resolve
+IP-CIDR,172.16.0.0/12,DIRECT,no-resolve
+IP-CIDR,192.168.0.0/16,DIRECT,no-resolve
+IP-CIDR,127.0.0.0/8,DIRECT,no-resolve
+
+# 兜底：解析到国内 IP 的直接走直连
+GEOIP,CN,DIRECT
