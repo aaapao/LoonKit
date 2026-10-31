@@ -62,11 +62,10 @@ TikTok = select, PROXY, HK, SG, US, JP, TW, img-url = https://gh-proxy.com/https
 Netflix = select, PROXY, HK, SG, US, JP, TW, img-url = https://gh-proxy.com/https://raw.githubusercontent.com/aaapao/LoonKit/main/Icon/Qure/Netflix.png
 YouTube = select, PROXY, HK, SG, US, JP, TW, img-url = https://gh-proxy.com/https://raw.githubusercontent.com/aaapao/LoonKit/main/Icon/Qure/YouTube.png
 HK = url-test, 香港, url = http://www.qualcomm.cn/generate_204, interval = 300, tolerance = 50, img-url = https://gh-proxy.com/https://raw.githubusercontent.com/aaapao/LoonKit/main/Icon/Qure/Hong_Kong.png
-TW = url-test, 台湾, url = http://www.qualcomm.cn/generate_204, interval = 300, tolerance = 50, img-url = https://gh-proxy.com/https://raw.githubusercontent.com/aaapao/LoonKit/main/Icon/Qure/China.png
+TW = url-test, 台湾, url = http://www.qualcomm.cn/generate_204, interval = 300, tolerance = 50, img-url = https://gh-proxy.com/https://raw.githubusercontent.com/aaapao/LoonKit/main/Icon/Qure/Taiwan.png
 SG = url-test, 新加坡, url = http://www.qualcomm.cn/generate_204, interval = 300, tolerance = 50, img-url = https://gh-proxy.com/https://raw.githubusercontent.com/aaapao/LoonKit/main/Icon/Qure/Singapore.png
 US = url-test, 美国, url = http://www.qualcomm.cn/generate_204, interval = 300, tolerance = 50, img-url = https://gh-proxy.com/https://raw.githubusercontent.com/aaapao/LoonKit/main/Icon/Qure/United_States.png
 JP = url-test, 日本, url = http://www.qualcomm.cn/generate_204, interval = 300, tolerance = 50, img-url = https://gh-proxy.com/https://raw.githubusercontent.com/aaapao/LoonKit/main/Icon/Qure/Japan.png
-KR = url-test, 韩国, url = http://www.qualcomm.cn/generate_204, interval = 300, tolerance = 50, img-url = https://gh-proxy.com/https://raw.githubusercontent.com/aaapao/LoonKit/main/Icon/Qure/Korea.png
 
 [Remote Filter]
 香港 = NameRegex, FilterKey = "^(?=.*((?i)🇭🇰|香港|(\b(HK|HKG|Hong)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$"
@@ -75,10 +74,10 @@ KR = url-test, 韩国, url = http://www.qualcomm.cn/generate_204, interval = 300
 韩国 = NameRegex, FilterKey = "^(?=.*((?i)🇰🇷|韩国|韓|首尔|(\b(KR|KOR|Korea)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$"
 新加坡 = NameRegex, FilterKey = "^(?=.*((?i)🇸🇬|新加坡|狮|(\b(SG|SGP|Singapore)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$"
 美国 = NameRegex, FilterKey = "^(?=.*((?i)🇺🇸|美国|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥|(\b(US|USA|United States)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$"
-游戏 = NameRegex, FilterKey = "^(?=.*((?i)游戏|🎮|(\b(GAME)(\d+)?\b)))(?!.*((?i)回国|校园)).*$"
-全球 = NameRegex, FilterKey = "^(?=.*(.))(?!.*((?i)群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|教程|关注|更新|作者|加入|超时|收藏|福利|邀请|好友|失联|(\b(USE|USED|TOTAL|EXPIRE|EMAIL|Panel|Channel|Author|Traffic)(\d+)?\b|(\d{4}-\d{2}-\d{2}|\dG)))).*$"
 
 [Rule]
+# App Store 图片与下载 CDN，固定直连，避免被 AI 组或 FINAL 带走
+DOMAIN-SUFFIX,mzstatic.com,DIRECT
 FINAL,FINAL
 
 [Remote Rule]
@@ -93,6 +92,7 @@ https://gh-proxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_scr
 https://gh-proxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Loon/Direct/Direct.list, policy = DIRECT, tag = DIRECT, enabled = true
 https://gh-proxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Loon/Proxy/Proxy.list, policy = PROXY, tag = Proxy, enabled = true
 https://gh-proxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Loon/Proxy/Proxy_Domain.list, policy = PROXY, tag = Proxy_Domain, enabled = true
+https://gh-proxy.com/https://raw.githubusercontent.com/aaapao/LoonKit/main/Rule/GEOIP.lsr, policy = DIRECT, tag = GEOIP_CN, enabled = true
 
 [Host]
 

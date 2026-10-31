@@ -44,7 +44,7 @@
 
 | 本地路径 | 上游 | 改动 |
 | --- | --- | --- |
-| `Rule/AI.lsr`、`Plugin/rules/ai-services.lpx` | [ConnersHua/RuleGo](https://github.com/ConnersHua/RuleGo) · `Surge/Ruleset/Extra/AI.list` | 转为 Loon 语法，去除 Surge 专有的 `extended-matching` 参数 |
+| `Rule/AI.lsr`、`Plugin/rules/ai-services.lpx` | [ConnersHua/RuleGo](https://github.com/ConnersHua/RuleGo) · `Surge/Ruleset/Extra/AI.list` | 转为 Loon 语法，去除 Surge 专有的 `extended-matching` 参数；移除 `apps.mzstatic.com`（App Store CDN，改由配置固定直连） |
 
 ## 未镜像的资源
 

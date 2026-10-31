@@ -68,7 +68,7 @@ LoonKit/
 | `Script/tasks/checkin-template.js` | 签到/查询类脚本模板，自包含、无外部依赖 |
 | `Rule/Direct.lsr` | 直连规则示例 |
 | `Rule/GEOIP.lsr` | GeoIP 兜底直连 |
-| `Rule/AI.lsr` | AI 服务分流（74 条），不写策略，配合 `policy = AI` 使用 |
+| `Rule/AI.lsr` | AI 服务分流（73 条），不写策略，配合 `policy = AI` 使用 |
 | `Plugin/rules/ai-services.lpx` | 同一份 AI 规则的插件版，规则走 `PROXY` 组 |
 | `Rule/_template.lsr` | 规则写法模板 |
 | `Task/daily-checkin.ltx` | 每日定时任务模板 |

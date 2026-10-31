@@ -10,7 +10,7 @@
 
 # 规则来源：ConnersHua/RuleGo · Surge/Ruleset/Extra/AI.list
 # 原始地址：https://github.com/ConnersHua/RuleGo/blob/master/Surge/Ruleset/Extra/AI.list
-# 共 74 条，已去除 Surge 专有的 extended-matching 参数。
+# 共 73 条，已去除 Surge 专有的 extended-matching 参数。
 #
 # 注意：插件规则只能用 DIRECT / REJECT / PROXY，无法指定自定义策略组。
 # 若想让这些域名走自己的 AI 策略组，改用 Rule/AI.lsr，在 [Remote Rule] 里配 policy = AI。
@@ -25,7 +25,6 @@ DOMAIN-SUFFIX,gateway.icloud.com,PROXY
 DOMAIN,cp4.cloudflare.com,PROXY
 DOMAIN,guzzoni.apple.com,PROXY
 DOMAIN,gspe1-ssl.ls.apple.com,PROXY
-DOMAIN-SUFFIX,apps.mzstatic.com,PROXY
 
 # Anthropic
 # > Claude
